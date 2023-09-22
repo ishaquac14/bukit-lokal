@@ -12,7 +12,7 @@ class Book extends Model
     protected $fillable = [
         'name',
         'author',
-        'year',
+        'date',
         'description',   
     ];
 }

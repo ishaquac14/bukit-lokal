@@ -30,16 +30,16 @@ class BookController extends Controller
     public function store(Request $request)
     {
         Book::create($request->all());
-
         return redirect()->route('book.index')->with('success', 'Laporan Add successfuly');
     }
 
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function show($id)
     {
-        //
+        $book = Book::findOrFail($id);
+        return view('pages.book.show', compact('book'));
     }
 
     /**
@@ -47,7 +47,8 @@ class BookController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $book = Book::findOrFail($id);
+        return view('pages.book.edit', compact('book'));
     }
 
     /**
@@ -55,7 +56,9 @@ class BookController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $book = Book::findOrFail($id);
+        $book->update($request->all());
+        return redirect()->route('book.index')->with('success', 'Laporan Updated successfuly');
     }
 
     /**
@@ -63,6 +66,8 @@ class BookController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $book = Book::findOrFail($id);
+        $book->delete();
+        return redirect()->route('book.index')->with('success', 'Laporan Deleted successfuly');
     }
 }

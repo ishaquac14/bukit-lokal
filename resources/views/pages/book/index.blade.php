@@ -3,7 +3,7 @@
 @section('body')
     <div class="d-flex align-items-center justify-content-between">
         <h1 class="mb-0">List Laporan</h1>
-        <a href="{{ route('book.create') }}" class="btn btn-primary">Add Laporan</a>
+        <a href="{{ route('book.create') }}" class="btn btn-primary">Add</a>
     </div>
     <hr>
     @if(Session::has('success'))
@@ -14,10 +14,10 @@
     <table class="table table-hover">
         <thead class="table-primary">
             <tr>
-                <th>#</th>
-                <th>Name</th>
+                <th>No</th>
+                <th>Shift</th>
                 <th>Author</th>
-                <th>Year</th>
+                <th>Date</th>
                 <th>Action</th>
             </tr>
         </thead>
@@ -28,13 +28,21 @@
                 <td class="align-middle">{{ $loop->iteration }}</th>
                 <td class="align-middle">{{ $book->name }}</th>
                 <td class="align-middle">{{ $book->author }}</th>
-                <td class="align-middle">{{ $book->year }}</th>
+                <td class="align-middle">{{ \Carbon\Carbon::parse($book->date)->format('d-m-Y') }}</td>
                 <td class="align-middle">
-                    <div class="btn-group" role="group" aria-label="Basic mixed styles example">
-                        <button type="button" class="btn btn-secondary">Detail</button>
-                        <button type="button" class="btn btn-warning">Edit</button>
-                        <button type="button" class="btn btn-danger">Delete</button>
-                    </div>
+                    <div class="btn-group" role="group" aria-label="Basic example">
+                        <button type="button" class="btn btn-secondary">
+                            <a href="{{ route('book.show', $book->id) }}" style="color: inherit; text-decoration: none;">Detail</a>
+                        </button>
+                        <button type="button" class="btn btn-warning">
+                            <a href="{{ route('book.edit', $book->id) }}" style="color: inherit; text-decoration: none;">Edit</a>
+                        </button>
+                        <form action="{{ route('book.destroy', $book->id) }}" method="POST" type="button" class="btn btn-danger p-0" onsubmit="return confirm('Are you sure?')">
+                        @csrf
+                        @method('DELETE')
+                        <button class="btn btn-danger m-0">Delete</button>
+                        </form>
+                    </div>                                      
                 </th>
             </tr>
             @endforeach
