@@ -13,7 +13,7 @@
             <div class="col-md-6">
                 <label class="form-label">Shift</label>
                 <select name="name" class="form-control" id="shiftSelect">
-                    <option value="" disabled selected>Pilih Shift</option>
+                    <option value="" disabled selected>--Pilih Shift--</option>
                     <option value="Non Shift">Non Shift</option>
                     <option value="Shift 2">Shift 2</option>
                     <option value="Shift 3">Shift 3</option>
