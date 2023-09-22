@@ -1,5 +1,5 @@
 @extends('layouts.app')
 
 @section('body')
-    <h1>Ini Halaman Depan</h1>
+    <h1>Ini Halaman Home</h1>
 @endsection
