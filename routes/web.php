@@ -3,6 +3,8 @@
 use App\Http\Controllers\BookController;
 use Illuminate\Support\Facades\Route;
 
+use function Laravel\Prompts\search;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -19,3 +21,4 @@ Route::get('/', function () {
 })->name('welcome');
 
 Route::resource('/book', BookController::class);
+

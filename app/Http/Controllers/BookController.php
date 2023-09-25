@@ -12,13 +12,13 @@ class BookController extends Controller
      */
     public function index()
     {
-        $books = Book::orderBy('created_at', 'DESC')->get();
+        $books = Book::orderBy('created_at', 'DESC')->paginate(5);
         return view('pages.book.index', compact('books'));
-    }
-
+    }    
     /**
      * Show the form for creating a new resource.
      */
+
     public function create()
     {
         return view('pages.book.create');
@@ -27,12 +27,18 @@ class BookController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+        public function store(Request $request)
     {
+        $request->validate([
+            'name' => 'required', // Kolom 'name' harus diisi
+            'author' => 'required',
+            'date' => 'required',
+            'description' => 'required',
+        ]);
+
         Book::create($request->all());
         return redirect()->route('book.index')->with('success', 'Laporan Add successfuly');
     }
-
     /**
      * Display the specified resource.
      */
