@@ -1,13 +1,16 @@
 @extends('layouts.app')
 
+@section('head')
+    <link rel="stylesheet" href="{{ asset('css/style.css') }}">
+@endsection
 @section('body')
 <div class="container">
     <div class="d-flex align-items-center justify-content-between">
-        <h1 class="mb-0">List Laporan</h1>
+        <h2>List Laporan</h2>
         <a href="{{ route('book.create') }}" class="btn btn-primary mb-2">Add Laporan</a>     
     </div>
         <div class="col-md-3 offset-md-9">
-        <form action="{{ route('book.index') }}" class="d-flex ml-auto" role="search" method="GET">
+        <form action="/book" class="d-flex ml-auto" method="GET">
             <input class="form-control me-2" type="search" name="search" placeholder="Search">
             <button class="btn btn-outline-success" type="submit">Search</button>
         </form>
@@ -60,4 +63,7 @@
         @include('layouts.pagination', ['books' => $books])
     </div>
 </div>
+@endsection
+@section('scripts')
+    <script src="{{ asset('js/script.js') }}"></script>
 @endsection

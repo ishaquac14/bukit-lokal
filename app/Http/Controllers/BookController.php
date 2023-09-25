@@ -10,9 +10,20 @@ class BookController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Request $request)
     {
-        $books = Book::orderBy('created_at', 'DESC')->paginate(5);
+        $searchTerm = $request->input('search');
+
+        $books = Book::orderBy('created_at', 'DESC')
+            ->where(function ($query) use ($searchTerm) {
+                if ($searchTerm) {
+                    $query->where('name', 'LIKE', '%' . $searchTerm . '%')
+                        ->orWhere('author', 'LIKE', '%' . $searchTerm . '%')
+                        ->orWhere('date', 'LIKE', '%' . $searchTerm . '%');
+                }
+            })
+            ->paginate(5);
+
         return view('pages.book.index', compact('books'));
     }    
     /**

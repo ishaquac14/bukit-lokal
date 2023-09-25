@@ -21,4 +21,5 @@ Route::get('/', function () {
 })->name('welcome');
 
 Route::resource('/book', BookController::class);
+Route::get('/book/search', 'BookController@index');
 
