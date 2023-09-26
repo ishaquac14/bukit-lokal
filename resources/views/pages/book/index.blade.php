@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('head')
-    <link rel="stylesheet" href="{{ asset('css/style.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/sidebar.css') }}">
 @endsection
 @section('body')
 <div class="container">
@@ -65,5 +65,5 @@
 </div>
 @endsection
 @section('scripts')
-    <script src="{{ asset('js/script.js') }}"></script>
+    <script src="{{ asset('js/sidebar.js') }}"></script>
 @endsection

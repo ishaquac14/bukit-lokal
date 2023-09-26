@@ -3,7 +3,7 @@
 @section('body')
 <div class="container">
     <div class="d-flex align-items-center justify-content-between">
-        <h1 class="mb-0">Buat Laporan</h1>
+        <h2 class="mb-0">Buat Laporan</h2>
         <a href="{{ route('book.index') }}" class="btn btn-secondary">Back</a>
     </div>
     <hr>
