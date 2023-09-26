@@ -22,7 +22,7 @@
     </div>
     @endif
     <div class="table-responsive">
-        <table class="table table-hover">
+        <table id="example" class="table table-striped" style="width:100%">
             <thead class="table-primary">
                 <tr>
                     <th>No</th>
