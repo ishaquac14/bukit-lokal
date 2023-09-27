@@ -35,12 +35,6 @@
             </div>
         </div>
         <div class="row mt-3">
-            <div class="col-md-6 offset-md-6">
-                <label class="form-label">Input Photo</label>
-                <input type="file" name="photo" class="form-control">
-            </div>
-        </div>        
-        <div class="row mt-3">
             <div class="col">
                 <div class="d-grid">
                     <button class="btn btn-primary">Submit</button>

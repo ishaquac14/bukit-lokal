@@ -45,7 +45,7 @@ class InfoController extends Controller
             'description' => 'required',
         ]);
 
-        $info = Info::create($request->all());
+        Info::create($request->all());
         // if($request->hasFile('photo')){
         //     $request->file('photo')->move('photoinformasi/', $request->file('photo')->getClientOriginalName());
         //     $info->photo = $request->file('photo')->getClientOriginalName();
