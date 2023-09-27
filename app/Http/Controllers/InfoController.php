@@ -36,7 +36,7 @@ class InfoController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-        public function store(Request $request)
+    public function store(Request $request)
     {
         $request->validate([
             'name' => 'required', // Kolom 'name' harus diisi
@@ -46,11 +46,6 @@ class InfoController extends Controller
         ]);
 
         Info::create($request->all());
-        // if($request->hasFile('photo')){
-        //     $request->file('photo')->move('photoinformasi/', $request->file('photo')->getClientOriginalName());
-        //     $info->photo = $request->file('photo')->getClientOriginalName();
-        //     $info->save(;)
-        // }
         return redirect()->route('info.index')->with('success', 'Information Add successfuly');
     }
     /**
