@@ -30,7 +30,7 @@ class InfoController extends Controller
 
     public function create()
     {
-        return view('pages.infos.create');
+        return view('pages.info.create');
     }
 
     /**
@@ -45,8 +45,13 @@ class InfoController extends Controller
             'description' => 'required',
         ]);
 
-        Info::create($request->all());
-        return redirect()->route('info.index')->with('success', 'Laporan Add successfuly');
+        $info = Info::create($request->all());
+        // if($request->hasFile('photo')){
+        //     $request->file('photo')->move('photoinformasi/', $request->file('photo')->getClientOriginalName());
+        //     $info->photo = $request->file('photo')->getClientOriginalName();
+        //     $info->save(;)
+        // }
+        return redirect()->route('info.index')->with('success', 'Information Add successfuly');
     }
     /**
      * Display the specified resource.
@@ -73,7 +78,7 @@ class InfoController extends Controller
     {
         $info = Info::findOrFail($id);
         $info->update($request->all());
-        return redirect()->route('info.index')->with('success', 'Laporan Updated successfuly');
+        return redirect()->route('info.index')->with('success', 'Information Updated successfuly');
     }
 
     /**
@@ -83,7 +88,7 @@ class InfoController extends Controller
     {
         $info = Info::findOrFail($id);
         $info->delete();
-        return redirect()->route('info.index')->with('success', 'Laporan Deleted successfuly');
+        return redirect()->route('info.index')->with('success', 'Information Deleted successfuly');
     }
 }
 

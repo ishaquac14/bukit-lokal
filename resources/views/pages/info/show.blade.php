@@ -3,7 +3,7 @@
 @section('body')
 <div class="container">
     <div class="d-flex align-items-center justify-content-between">
-        <h2 class="mb-0">Detail Laporan</h2>
+        <h2 class="mb-0">Detail Informasi</h2>
         <a href="{{ route('info.index') }}" class="btn btn-secondary">Back</a>
     </div>
     <hr>
@@ -24,7 +24,7 @@
         </div>
         <div class="col-md-6">
             <label class="form-label">Description</label>
-            <textarea class="form-control" name="description" placeholder="description" rows="{{ substr_count($info->description, "\n") + 1 }}" readonly>{{ $book->description }}</textarea>
+            <textarea class="form-control" name="description" placeholder="description" rows="{{ substr_count($info->description, "\n") + 1 }}" readonly>{{ $info->description }}</textarea>
         </div>
     </div>
     <div class="row">

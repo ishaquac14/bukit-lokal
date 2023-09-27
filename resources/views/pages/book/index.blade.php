@@ -60,7 +60,7 @@
                 @endif
             </tbody>
         </table>
-        @include('layouts.pagination', ['books' => $books])
+        @include('layouts.pagination-book', ['books' => $books])
     </div>
 </div>
 @endsection

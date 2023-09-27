@@ -32,7 +32,7 @@
             </div>
             <div class="col-md-6">
                 <label class="form-label">Description</label>
-                <textarea class="form-control" name="description" placeholder="description" rows="{{ substr_count($info->description, "\n") + 1 }}">{{ $book->description }}</textarea>
+                <textarea class="form-control" name="description" placeholder="description" rows="{{ substr_count($info->description, "\n") + 1 }}">{{ $info->description }}</textarea>
             </div>
         </div>
         <div class="row mt-3">

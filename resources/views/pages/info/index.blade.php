@@ -6,8 +6,8 @@
 @section('body')
 <div class="container">
     <div class="d-flex align-items-center justify-content-between">
-        <h2>List Laporan</h2>
-        <a href="{{ route('info.create') }}" class="btn btn-primary mb-2">Add Laporan</a>     
+        <h2>List Informasi</h2>
+        <a href="{{ route('info.create') }}" class="btn btn-primary mb-2">Add Informasi</a>     
     </div>
         <div class="col-md-3 offset-md-9">
         <form action="/info" class="d-flex ml-auto" method="GET">
@@ -26,7 +26,7 @@
             <thead class="table-primary">
                 <tr>
                     <th>No</th>
-                    <th>Shift</th>
+                    <th>Information</th>
                     <th>Author</th>
                     <th>Date</th>
                     <th>Action</th>
@@ -60,7 +60,7 @@
                 @endif
             </tbody>
         </table>
-        @include('layouts.pagination', ['books' => $books])
+        @include('layouts.pagination-info', ['infos' => $infos])
     </div>
 </div>
 @endsection

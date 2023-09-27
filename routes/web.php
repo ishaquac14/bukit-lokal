@@ -27,3 +27,4 @@ Route::get('/book/search', 'BookController@index');
 Route::resource('/info', InfoController::class);
 Route::get('/info/search', 'InfoController@index');
 
+

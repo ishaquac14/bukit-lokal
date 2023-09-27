@@ -3,21 +3,16 @@
 @section('body')
 <div class="container">
     <div class="d-flex align-items-center justify-content-between">
-        <h2 class="mb-0">Buat Laporan</h2>
+        <h2 class="mb-0">Tambahkan Informasi</h2>
         <a href="{{ route('info.index') }}" class="btn btn-secondary">Back</a>
     </div>
     <hr>
-    <form action="{{ route('info.store') }}" method="POST">
+    <form action="{{ route('info.store') }}" method="POST" enctype="multipart/form-data">
         @csrf
         <div class="row">
             <div class="col-md-6">
-                <label class="form-label">Shift</label>
-                <select name="name" class="form-control" id="shiftSelect">
-                    <option value="" disabled selected>Pilih Shift</option>
-                    <option value="Non Shift">Non Shift</option>
-                    <option value="Shift 2">Shift 2</option>
-                    <option value="Shift 3">Shift 3</option>
-                </select>
+                <label class="form-label">Information Name</label>
+                <input type="text" name="name" class="form-control" placeholder="Isi Informasi">
             </div>
             <div class="col-md-6">
                 <label class="form-label">Author</label>
@@ -39,6 +34,12 @@
                 <textarea class="form-control" name="description" placeholder="description" rows="5"></textarea>
             </div>
         </div>
+        <div class="row mt-3">
+            <div class="col-md-6 offset-md-6">
+                <label class="form-label">Input Photo</label>
+                <input type="file" name="photo" class="form-control">
+            </div>
+        </div>        
         <div class="row mt-3">
             <div class="col">
                 <div class="d-grid">
