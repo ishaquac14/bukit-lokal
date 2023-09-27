@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\BookController;
+use App\Http\Controllers\InfoController;
 use Illuminate\Support\Facades\Route;
 
 use function Laravel\Prompts\search;
@@ -22,4 +23,7 @@ Route::get('/', function () {
 
 Route::resource('/book', BookController::class);
 Route::get('/book/search', 'BookController@index');
+
+Route::resource('/info', InfoController::class);
+Route::get('/info/search', 'InfoController@index');
 
