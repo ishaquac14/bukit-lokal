@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\BookController;
 use App\Http\Controllers\InfoController;
+use App\Http\Controllers\LoginController;
 use Illuminate\Support\Facades\Route;
 
 use function Laravel\Prompts\search;
@@ -18,8 +19,11 @@ use function Laravel\Prompts\search;
 */
 
 Route::get('/', function () {
-    return view('pages.welcome');
+    return view('auth.login');
 })->name('welcome');
+
+Route::get('/login', [LoginController::class, 'index'])->name('login');
+Route::post('/login-proses', [LoginController::class, 'login_proses'])->name('login-proses');
 
 Route::resource('/book', BookController::class);
 Route::get('/book/search', 'BookController@index');
